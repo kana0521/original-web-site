@@ -1,0 +1,1539 @@
+@charset "UTF-8";
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+* {
+    font-family: sans-serif;
+}
+
+/* ヘッダースタイリング */
+.header {
+    position: fixed;  /* 画面上部に固定 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; /* ヘッダーの高さ */
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0,0,0,0.5);
+    padding: 0 50px;
+    z-index: 9999
+}
+
+.header__container {
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: inherit;
+    color: #fff;
+    padding: 0 50px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.header__logo a {
+    text-decoration: none;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* ハンバーガーメニュー */
+
+.hamburger {
+    width: 50px;
+    height: 80px;
+    /* position: relative; */
+    position: absolute;
+    right: 20px; 
+    top: 50%;
+    transform: translateY(-50%);
+    appearance: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(0,0,0,0);
+    cursor: pointer;
+}
+
+.hamburger span,
+.hamburger span::before,
+.hamburger span::after {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    transition: all 0.5s;
+}
+
+.hamburger span::before {
+    top: 10px;
+}
+
+.hamburger span::after {
+    bottom: 10px;
+}
+
+.hamburger.open span {
+    background-color: transparent;
+}
+
+.hamburger.open span::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.hamburger.open span::after {
+    transform: rotate(-45deg);
+    bottom: 0;
+}
+
+/* ナビゲーションメニュー */
+
+.nav {
+    position: fixed;
+    width: 40%;
+    height: 100vh;
+    top: 80px;
+    right: -100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 50px 0;
+    transition: all 0.5s;
+    border-top: #fff 1px solid;
+}
+
+.nav__item a {
+    display: block;
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+    padding: 20px 0 20px 50px;
+    text-transform: uppercase;
+}
+
+.nav__item a:hover {
+    background-color: #fff;
+    color: black;
+
+}
+
+
+
+.nav.open {
+    right: 0;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        width: 100%; /* スマホでは全画面に */
+    }
+}
+
+
+/* body */
+
+body {
+    /* background-color: #dededa; */
+    background-image: url(../img/bgc_image.png);
+    background-size: cover;
+    font-family: "Noto Serif JP", serif;
+    
+}
+
+
+#top {
+    background-image: url(../img/S__50724874.jpg);
+    
+}
+
+.top-text{
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: relative;
+    height: fit-content;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    top: 40%;
+    left: 45%;
+    writing-mode: vertical-rl; /* 縦書き（右から左へ） */
+    text-orientation: upright; /* 文字の向きを正しく表示 */
+    letter-spacing: 4px;
+    
+    
+    /* 明朝体設定 */
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+    font-size: 30px;
+}
+
+.story_text {
+    text-align: center;
+    line-height: 2.5;
+
+}
+
+.top-image {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+.top-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#story{
+    display: flex;
+    justify-content: center;
+}
+.story {
+    /* background-color: red; */
+    width: 40vw;
+    height: 80vh; 
+    display: grid;
+    justify-content: center; /*水平方向の中央揃え*/
+    align-items: center; /* 垂直方向の上端揃え */
+    padding: 130px 0 100px 0; /*少し余白を持たせる*/
+}
+.story_text {
+    font-size: 1.18em;
+    color: #333;
+    white-space: normal;
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+}
+
+.img__container {
+    height: 500px;
+    display: flex;
+    gap: 10px;
+    max-width: 100vw;
+}
+
+.img__slider {
+overflow: hidden;
+width: 100%;
+background-color: #ddd;
+padding: 20px 0 0 0; /* 下の余白を0に */
+margin-bottom: 0;
+}
+
+.img__container{
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    animation: slide 30s linear infinite;
+}
+
+
+
+@keyframes slide {
+    from{
+        transform: translateX(0%);
+    }
+    to{
+        transform: translateX(-50%);
+    }
+}
+
+#concept {
+    background-color: #f2f2f2;
+    margin-top: 0; /* 上の余白をなくす */
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+.concept {
+    margin: 200px;
+    display: flex;
+    position: relative; 
+   
+}
+
+
+.concept {
+    display: flex;
+    flex-direction: row-reverse; /* 画像を右、テキストを左 */
+    justify-content: center;
+    align-items: center; /* 縦方向の位置を揃える */
+    max-width: 1200px;
+    margin: 100px auto;
+    gap: 50px; /* 画像とテキストの間隔を調整 */
+}
+
+.concept-text {
+    width: 45%; /* 横幅を調整してバランスを取る */
+    padding: 20px;
+    margin-top: 50px;
+    line-height: 1.8;
+    text-align: left; /* テキストを左寄せに */
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif; /* 明朝体にする */
+}
+
+.concept_h2 {
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif; /* 明朝体にする */
+
+}
+
+.concept-image {
+    max-width: 50%;
+    height: auto;
+}
+
+.concept-image img {
+    width: 80%;
+    height: auto;
+    object-fit: cover;
+}
+
+.concept_main {
+    position: absolute; /* 絶対配置 */
+    top: 30%;
+    left: 3%;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* フッター */
+footer {
+    background-color: #ffffff;
+    padding: 40px 20px;
+    border-top: 1px solid #ddd;
+    
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-menu ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+.footer-menu ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.business-hours {
+    flex: 2;
+}
+
+.business-hours h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.hours-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.hours-grid div {
+    flex: 1;
+    min-width: 200px;
+}
+
+.contact {
+    text-align: right;
+}
+
+.contact h3 {
+    margin-bottom: 5px;
+}
+
+.contact p {
+    margin: 5px 0;
+
+}
+
+.contact-btn {
+    padding: 8px 15px;
+    border: 1px solid #333;
+    background: none;
+    cursor: pointer;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+.social-icons a img {
+    width: 24px;
+    margin-left: 10px;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact {
+        text-align: center;
+    }
+
+    .hours-grid {
+        flex-direction: column;
+    }
+}
+
+
+.mealImg1 {
+    display: flex;
+    width: 50%;
+}
+.mealImg2 {
+    display: flex;
+    width: 50%;
+}
+
+
+
+
+.hotel_plan {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    /* background-image: url('bgc_image'); */
+}
+
+
+/* 宿泊プラン全体のデザイン */
+.hotel_plan {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* タイトルのデザイン */
+.plan_title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #222;
+    font-family: "Noto Serif JP", serif;
+}
+
+.plan_title span {
+    font-size: 14px;
+    color: #888;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* プラン一覧のレイアウト */
+.plans {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* プランカード */
+.plan-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.plan-card:hover {
+    transform: translateY(-5px);
+}
+
+/* プラン画像 */
+.plan-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* 英語のアクティビティ名 */
+.plan-card h2 {
+    font-size: 18px;
+    margin: 15px 0 5px;
+    color: #333;
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 300; /* 文字を細くする */
+    letter-spacing: 1px;
+}
+
+/* 日本語の説明 */
+.jp-name {
+    font-size: 14px;
+    color: #666;
+    font-family: "Noto Serif JP", serif;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .plans {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+
+
+.content {
+    padding: 50px 10%;
+}
+.text-image {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+.text-image img {
+    width: 50%;
+    border-radius: 10px;
+}
+.text-image p {
+    width: 50%;
+    font-size: 1.2rem;
+}
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.container_news, .events_box {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+}
+
+/* PC時は見出しを左に配置 */
+.news-container, .events-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* 見出しデザイン */
+.news-title, .events-title {
+    min-width: 150px;
+    font-size: 2em;
+    font-weight: bold;
+    border-left: 5px solid #333;
+    padding-left: 10px;
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+}
+
+/* ニュース・イベントリストのボックス */
+.news_box, .events_box {
+    flex-grow: 1;
+    max-width: 600px;
+}
+
+/* リスト全体のスタイル */
+.news_box ul, .events_box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* ニュース項目を横並びに */
+.news_list {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    font-size: 1.1em;
+    border-bottom: 1px dashed #bbb;
+}
+
+/* 最後の項目のボーダーを消す */
+.news_list:last-child {
+    border-bottom: none;
+}
+
+/* 日付（time）を固定幅で整列 */
+.news_list time {
+    font-size: 0.9em;
+    color: #666;
+    min-width: 120px;
+    text-align: left;
+}
+
+/* 内容（p）をフレックスで調整 */
+.news_list p {
+    flex-grow: 1;
+    margin: 0 10px;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+}
+
+/* 矢印（→）のデザイン */
+.news_list span {
+    color: #d9534f;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: right;
+    min-width: 30px;
+}
+
+/* ------------- ✅ スマホ対応 ------------- */
+@media (max-width: 768px) {
+    .news-container, .events-container {
+        flex-direction: column; /* スマホ時は縦配置 */
+        align-items: center;
+    }
+
+    .news-title, .events-title {
+        text-align: center; /* スマホ時は中央配置 */
+        min-width: 100%;
+        border-left: none;
+        border-bottom: 2px solid #333;
+        padding-bottom: 5px;
+    }
+
+    .news_list {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+}
+
+
+.container_news {
+    .container_news {
+        position: fixed; /* 画面上に固定 */
+        left: 50%; /* 水平方向の中央 */
+        top: 50%; /* 垂直方向の中央 */
+        transform: translate(-50%, -50%);
+        max-width: 800px;
+        width: 90%; 
+        padding: 20px;
+        font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+    }
+    
+    /* スマホ対応 */
+    @media (max-width: 768px) {
+        .container_news {
+            width: 95%; /* よりコンパクトに調整 */
+            padding: 15px;
+        }
+    }
+    
+}
+
+/* PC時は見出しを左に配置 */
+.news-container {
+    display: flex;
+    align-items: center;
+    height: 40em;
+
+}
+
+/* 見出しデザイン */
+.news-title {
+    min-width: 150px;
+    font-size: 2em;
+    font-weight: bold;
+    border-left: 5px solid #333;
+    padding-left: 10px;
+    
+}
+
+/* ニュース・イベントリストのボックス */
+.news_box, .events_box {
+    flex-grow: 1;
+    max-width: 600px;
+}
+
+/* リスト全体のスタイル */
+.news_box ul, .events_box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* ニュース項目を横並びに */
+.news_list {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 25px 15px;
+    font-size: 1.0em;
+    border-bottom: 1px dashed #bbb;
+    line-height: 2.0;
+}
+
+/* 最後の項目のボーダーを消す */
+.news_list:last-child {
+    border-bottom: none;
+}
+
+/* 日付（time）を固定幅で整列 */
+.news_list time {
+    font-size: 1.0em;
+    color: #666;
+    min-width: 120px;
+    text-align: left;
+}
+
+/* 内容（p）をフレックスで調整 */
+.news_list p {
+    flex-grow: 1;
+    margin: 0 10px;
+    font-weight: normal;
+    color: #333;
+    text-align: left;
+    letter-spacing: 0.2em;
+    white-space: nowrap;
+
+}
+
+/* 矢印（→）のデザイン */
+.news_list span {
+    color: #d9534f;
+    font-size: 1.0em;
+    font-weight: bold;
+    text-align: right;
+    min-width: 30px;
+}
+
+.news_list a {
+    display: flex;
+    text-decoration: none; 
+}
+
+/* ------------- スマホ対応 ------------- */
+@media (max-width: 768px) {
+    .news-container, .events-container {
+        flex-direction: column; /* スマホ時は縦配置 */
+        align-items: center;
+    }
+
+    .news-title, .events-title {
+        text-align: center; /* スマホ時は中央配置 */
+        min-width: 100%;
+        border-left: none;
+        border-bottom: 2px solid #333;
+        padding-bottom: 5px;
+    }
+
+    .news_list {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+    }
+}
+
+.news_list {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 18px 15px;
+    font-size: 1.0em;
+    position: relative; /* 疑似要素を使うために必要 */
+}
+
+.news_list::after {
+    content: "";
+    position: absolute;
+    bottom: -10px; /* ボーダーの位置調整 */
+    left: 0;
+    width: 100%;
+    height: 10px; /* ボーダーの高さ */
+    background: repeating-linear-gradient(
+        to bottom,
+        black 0px, black 2px, /* 1本目 */
+       
+    );
+}
+
+.news_box ul {
+    border-top: 0.8px solid #333; /* 最初の上 */
+    border-bottom: 0.8px solid #333; /* 最後の下 */
+    padding-top: 10px; /* 上の余白 */
+    padding-bottom: 10px; /* 下の余白 */
+}
+
+.news_list {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 18px 15px;
+    font-size: 1.0em;
+    position: relative; /* 疑似要素を使うために必要 */
+    border-bottom: 0.8px solid #333; /* 行の間 */
+    padding-bottom: 15px; /* ボーダーと次の行の間隔を調整 */
+    margin-bottom: 15px;
+}
+
+.news_list::after {
+    content: "";
+    position: absolute;
+    bottom: -10px; /* ボーダーの位置調整 */
+    left: 0;
+    width: 100%;
+    height: 10px; /* ボーダーの高さ */
+    background: repeating-linear-gradient(
+        to bottom,
+        black 0px, black 2px, 
+        
+    );
+}
+
+
+
+/* 新しいとこと、宿のメイン */
+/* body{
+    margin-top: 100%;
+    width: 100%;
+    object-fit: cover;
+    overflow-x: hidden;
+} */
+/* Animation Keyframes */
+@keyframes mask-play {
+    from {
+        mask-position: 0% 0%;
+    }
+    to {
+        mask-position: 0% 100%;
+    }
+}
+
+/* Stay Section Styles */
+.s-stay {
+    box-sizing: border-box;
+    padding: 20rem 0;
+    color: rgb(246, 248, 245);
+    background: rgb(100, 104, 101);
+}
+
+.s-stay__inner {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 116rem;
+    padding: 0 4rem;
+    margin: 0 auto;
+}
+
+.s-stay__main {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+
+.s-stay__head {
+    box-sizing: border-box;
+    text-wrap-mode: nowrap;
+    padding-right: 6rem;
+    margin-top: -2rem;
+}
+
+.c-head--2 {
+    box-sizing: border-box;
+    margin: 0 0 0 -0.2rem;
+    padding: 0;
+    font-weight: 300;
+    font-family: ivyora-display, Didot, "Times New Roman", serif;
+    font-size: 70px;
+    letter-spacing: 0.08em;
+    line-height: 1.306;
+}
+
+.c-head--white {
+    color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+}
+
+.c-sub-head {
+    box-sizing: border-box;
+    margin: 1rem 0 0;
+    padding: 0;
+    font-family: fot-matisse-pron, "Hiragino Mincho ProN", "Yu Mincho", YuMincho, serif;
+    font-size: 1.3rem;
+    line-height: 1.3;
+    letter-spacing: 0.15em;
+    display: flex;
+    align-items: center;
+}
+
+/* .c-sub-head.is-play {
+    mask-image: url("https://hotarutei.com/wp2023/wp-content/themes/hotarutei/assets/images/common/smoke_sprites2.webp");
+    mask-size: 100% 3600%;
+    mask-position: 0% 0%;
+    width: fit-content;
+    animation: mask-play 1.5s steps(35) 0.2s 1 normal forwards;
+} */
+
+.c-icon--arrow-l-l {
+    box-sizing: border-box;
+    line-height: 1;
+    font-size: 4rem;
+    margin-right: 1.5rem;
+    font-family: hotarutei-web-icons !important;
+}
+
+.s-stay__body {
+    box-sizing: border-box;
+    width: 818.742px;
+}
+
+.s-stay__panel {
+    box-sizing: border-box;
+}
+
+.s-stay__panel--1 {
+    width: calc(33.8% + 50vw);
+}
+
+.c-frame {
+    box-sizing: border-box;
+}
+
+.c-frame--white {
+    padding: 0.1rem;
+    background: rgb(246, 248, 245);
+}
+
+.c-frame__base {
+    box-sizing: border-box;
+    border-radius: 0.4rem;
+    background: rgb(100, 104, 101);
+}
+
+.s-stay__img {
+    box-sizing: border-box;
+    padding: 1rem;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.s-stay__parallax {
+    box-sizing: border-box;
+    overflow: hidden;
+    inset: auto;
+    margin: auto;
+    position: relative;
+    aspect-ratio: 2 / 1;
+}
+
+.s-stay__parallax span {
+    box-sizing: border-box;
+    inset: -26px 0;
+    margin: auto;
+    position: absolute;
+    display: block;
+    transform: translate(0, 0);
+    transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.s-stay__parallax source {
+    aspect-ratio: 2 / 1;
+}
+
+.s-stay__parallax span[data-parallax] {
+    will-change: transform;
+}
+
+.s-stay__parallax img {
+    box-sizing: border-box;
+    border: 0;
+    vertical-align: top;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    top: 0;
+    left: 0;
+    position: absolute;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Restaurant Section */
+.s-restaurant {
+    box-sizing: border-box;
+    padding: 20rem 0 0;
+}
+
+.s-restaurant__inner {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 116rem;
+    padding: 0 4rem;
+    margin: 0 auto;
+}
+
+.s-restaurant__main {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.s-restaurant__col--thumb {
+    box-sizing: border-box;
+    width: 534.852px;
+}
+
+.s-restaurant__col--des {
+    box-sizing: border-box;
+    position: relative;
+}
+
+.s-stay__lead {
+    box-sizing: border-box;
+    margin: 5rem 0 0;
+    padding: 0;
+    font-weight: 300;
+    font-size: 16px;
+    -webkit-text-stroke: 0.02rem;
+    line-height: 2;
+    letter-spacing: 0.2em;
+    font-feature-settings: "palt";
+}
+
+.s-stay__text {
+    box-sizing: border-box;
+    margin: 2rem 0 0;
+    padding: 0;
+    font-size: 15px;
+    line-height: 2.4;
+    letter-spacing: 0.15em;
+    font-feature-settings: "palt";
+}
+
+.s-stay__btn {
+    box-sizing: border-box;
+    margin: 4.5rem 0 0;
+    padding: 0;
+}
+
+.c-btn {
+    box-sizing: border-box;
+    background-color: transparent;
+    outline: none;
+    text-decoration: none;
+    font-family: ivyora-text, Didot, "Times New Roman", serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+    padding: 0 0 1rem;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+.c-btn--white {
+    color: rgb(255, 255, 255);
+}
+
+.c-btn:hover .c-icon--arrow-s-r {
+    transform: translateX(10px);
+}
+
+.c-icon--arrow-s-r {
+    box-sizing: border-box;
+    line-height: 1;
+    margin-left: 1.8rem;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    mask-image: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 51%);
+    mask-size: 200%;
+    font-size: 1.4667em;
+    font-family: hotarutei-web-icons !important;
+    transition: transform 0.3s ease;
+}
+
+.s-stay__deco {
+    box-sizing: border-box;
+    margin: 6rem 0 0;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.s-stay__des:before {
+    content: "";
+    width: 39%;
+    height: .1rem;
+    top: 1rem;
+    right: calc(100% + 6rem);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    display: block;
+    position: absolute;
+    -webkit-transform-origin: top right;
+    transform-origin: top right;
+    background: #f6f8f5;
+}
+
+.s-stay__panel--2 {
+    width: 644.297px;
+    margin: 0 30.8516px;
+}
+
+.s-stay__panel--3 {
+    width: 288.82px;
+    margin: 123.422px 30.8516px 0;
+}
+
+.s-stay__movie {
+    box-sizing: border-box;
+    padding: 1rem;
+    position: relative;
+    width: 100%;
+    display: block;
+}
+
+.s-stay__movie video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Utility Classes */
+.u-no-sp {
+    display: inline;
+}
+
+/* Media Queries */
+@media (max-width: 599px) {
+    .u-no-sp {
+        display: none;
+    }
+}
+
+/* Animation Classes */
+.is-play {
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* [data-smoke].is-play {
+    mask-image: url("../images/common/smoke_sprites2.webp");
+    mask-size: 100% 3600%;
+    mask-position: 0% 0%;
+    width: fit-content;
+    animation: mask-play 1.5s steps(35) 0.2s 1 normal forwards;
+} */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries */
+@media (max-width: 599px) {
+    .u-no-sp {
+        display: none;
+    }
+
+    .s-info {
+        padding: 0 0 12rem;
+    }
+
+    .s-stay {
+        padding: 10rem 0;
+    }
+
+    .s-stay__img {
+        aspect-ratio: 358 / 285;
+    }
+
+    .s-restaurant {
+        padding: 10rem 0 0;
+    }
+}
+
+/* 基本設定 */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(246, 248, 245);
+    color: rgb(29, 32, 31);
+    font-family: dnp-shuei-gothic-gin-std, sans-serif;
+    font-size: 16.4571px;
+}
+
+main {
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+/* レストランセクション */
+.s-restaurant__inner {
+    box-sizing: border-box;
+    max-width: 1200px;
+    padding: 0 2rem;
+    margin: 0 auto;
+}
+
+.s-restaurant__main {
+    box-sizing: border-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4rem;
+    padding: 2rem 0;
+    flex-wrap: nowrap;
+}
+
+.s-restaurant__col--thumb {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    width: 45%;
+    max-width: 534.852px;
+}
+
+.s-restaurant__col--des {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    width: 45%;
+    max-width: 575.953px;
+    padding-top: 2rem;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .s-restaurant__main {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .s-restaurant__col--thumb,
+    .s-restaurant__col--des {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+}
+
+/* フレーム設定 */
+.c-frame--black {
+    box-sizing: border-box;
+    padding: 0.1rem ;
+    background: rgb(29, 32, 31);
+    display: inline-block;
+    width: 100%;
+}
+
+.c-frame__base {
+    box-sizing: border-box;
+    border-radius: 0.4rem;
+    background: rgb(246, 248, 245);
+    width: 100%;
+}
+
+.s-restaurant__frame {
+    box-sizing: border-box;
+    padding: 0.5rem;
+    position: relative;
+    width: 100%;
+}
+
+.s-restaurant__pic1,
+.s-restaurant__pic2,
+.s-restaurant__pic3 {
+    width: 100%;
+}
+
+/* パララックス効果 */
+.s-restaurant__parallax {
+    box-sizing: border-box;
+    overflow: hidden;
+    inset: auto;
+    margin: auto;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.s-restaurant__parallax[data-parallax] {
+    inset: -26px 0;
+    margin: 0;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: calc(100% + 52px);
+}
+
+.s-restaurant__pic2 .s-restaurant__parallax[data-parallax] {
+    inset: 0;
+    margin: 0;
+    height: 100%;
+}
+
+/* パララックスコンテナサイズ */
+.s-restaurant__col--thumb .s-restaurant__frame {
+    width: 512.242px;
+    height: 687.18px;
+}
+
+.s-restaurant__pic2 .s-restaurant__frame {
+    width: 244.812px;
+    height: 235.609px;
+}
+
+.s-restaurant__pic3 .s-restaurant__frame {
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+}
+
+/* 画像設定 */
+.s-restaurant__parallax img {
+    box-sizing: border-box;
+    border: 0;
+    /* vertical-align: top; */
+    position: absolute;
+    object-fit: cover;
+    object-position: center center;
+    user-select: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* 画像サイズ設定 */
+.s-restaurant__col--thumb img {
+    width: 512.242px;
+    height: 687.18px;
+}
+
+.s-restaurant__pic2 img {
+    width: 100%;
+    height: 100%;
+}
+
+.s-restaurant__pic3 img {
+    width: 100%;
+    height: auto;
+}
+
+/* ヘッダー設定 */
+.s-restaurant__head {
+    box-sizing: border-box;
+    margin: 0 0 0 -0.2rem;
+    padding: 0;
+    font-weight: 300;
+    font-family: ivyora-display, Didot, "Times New Roman", serif;
+    font-size: 70px;
+    letter-spacing: 0.08em;
+    line-height: 1.306;
+    width: fit-content;
+}
+
+.c-sub-head {
+    box-sizing: border-box;
+    margin: 1rem 0 0;
+    padding: 0;
+    font-family: fot-matisse-pron, "Hiragino Mincho ProN", "Yu Mincho", YuMincho, serif;
+    font-size: 1.3rem;
+    line-height: 1.3;
+    letter-spacing: 0.15em;
+    font-feature-settings: "palt";
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+/* アイコン設定 */
+.c-icon--arrow-l-l {
+    box-sizing: border-box;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    font-size: 4rem;
+    margin-right: 1.5rem;
+    font-family: hotarutei-web-icons !important;
+}
+
+/* テキスト設定 */
+.s-restaurant__text {
+    box-sizing: border-box;
+    margin: 4rem 0 0;
+    padding: 0;
+    font-size: 15px;
+    line-height: 2.4;
+    letter-spacing: 0.15em;
+    font-feature-settings: "palt";
+}
+
+/* ボタン設定 */
+.s-restaurant__btn {
+    box-sizing: border-box;
+    margin: 4.5rem 0 0;
+    padding: 0;
+}
+
+.c-btn {
+    box-sizing: border-box;
+    background-color: transparent;
+    outline: none;
+    text-decoration-line: none;
+    font-family: ivyora-text, Didot, "Times New Roman", serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+    padding: 0 0 1rem;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+    color: rgb(29, 32, 31);
+}
+
+.c-icon--arrow-s-r {
+    box-sizing: border-box;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    margin-left: 1.8rem;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    mask-image: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 50%, rgba(0, 0, 0, 0) 51%);
+    mask-size: 200%;
+    font-size: 1.4667em;
+    font-family: hotarutei-web-icons !important;
+}
+
+/* 画像2設定 */
+.s-restaurant__pic2 {
+    box-sizing: border-box;
+    width: 250px;
+    margin: 10rem 1rem 0 auto;
+    position: relative;
+}
+
+.s-restaurant__pic2 .s-restaurant__parallax {
+    width: 230px;
+    height: 230px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.s-restaurant__pic2 .c-frame--black {
+    padding: 0.1rem;
+    width: 100%;
+    height: 245px;
+    background: linear-gradient(to bottom right, rgba(29, 32, 31, 0.2), rgb(29, 32, 31));
+}
+
+.s-restaurant__pic2 .c-frame__base {
+    height: 100%;
+    background: linear-gradient(to bottom right, rgb(246, 248, 245), rgba(246, 248, 245, 0.95));
+}
+
+.s-restaurant__pic2 .s-restaurant__frame {
+    padding: 0.5rem;
+    height: 100%;
+}
+
+/* 画像3設定 */
+.s-restaurant__pic3 {
+    box-sizing: border-box;
+    margin: 8rem 0 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.s-restaurant__pic3 .s-restaurant__parallax {
+    aspect-ratio: 2560 / 900;
+    min-height: 300px;
+}
+
+.s-restaurant__pic3 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* アスペクト比設定 */
+.s-restaurant__parallax[style*="aspect-ratio: 1000 / 1240"] {
+    aspect-ratio: 1000 / 1240;
+}
+
+.s-restaurant__parallax[style*="aspect-ratio: 480 / 360"] {
+    aspect-ratio: 480 / 360;
+}
+
+.s-restaurant__parallax[style*="aspect-ratio: 2560 / 900"] {
+    aspect-ratio: 2560 / 900;
+}
+
+/* スモークエフェクト */
+
+@keyframes mask-play {
+    from {
+        mask-position: 0 0;
+    }
+    to {
+        mask-position: 0 100%;
+    }
+}
+
+/* レスポンシブ設定 */
+@media (max-width: 599px) {
+    .u-no-sp {
+        display: none;
+    }
+}
