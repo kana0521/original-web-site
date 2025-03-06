@@ -233,6 +233,15 @@ body {
     align-items: center; /* 垂直方向の上端揃え */
     padding: 130px 0 100px 0; /*少し余白を持たせる*/
 }
+.story_text_mobile {
+    display: none;
+    font-size: 1.18em;
+    color: #333;
+    white-space: normal;
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+    text-align: center;
+    line-height: 2.5;
+}
 .story_text {
     font-size: 1.18em;
     color: #333;
@@ -247,6 +256,10 @@ body {
     }
 
     .story_text {
+        display: none; /* 行間を調整 */
+    }
+    .story_text_mobile {
+        display: inline;
         font-size: 0.85em; /* スマホ用に少し小さく */
         line-height: 1.8; /* 行間を調整 */
     }
@@ -540,6 +553,13 @@ margin-bottom: 0;
     max-width: 600px;
 }
 
+.news_box_mobile {
+    display: none;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 600px;
+}
+
 .news_box ul {
     list-style: none;
     padding: 0;
@@ -601,8 +621,20 @@ margin-bottom: 0;
     }
 
     .news_box {
+        display: none;
         width: 100%;
         max-width: 90%;
+    }
+
+    .news_box_mobile {
+        display: inline;
+        width: 100%;
+        max-width: 90%;
+
+    }
+
+    .news_box_mobile ul{
+        padding-left: 0;
     }
 
     .news_list {
@@ -643,28 +675,6 @@ margin-bottom: 0;
         text-decoration: none;
     }
 }
-
-
-/* @media (max-width: 768px) {
-    .news-container, .events-container {
-        flex-direction: column; 
-        align-items: center;
-    }
-
-    .news-title, .events-title {
-        text-align: center;
-        min-width: 100%;
-        border-left: none;
-        border-bottom: 2px solid #333;
-        padding-bottom: 5px;
-    }
-
-    .news_list {
-        flex-direction: row;
-        align-items: center;
-        text-align: left;
-    }
-} */
 
 
 .container_news {
@@ -1243,6 +1253,7 @@ main {
     overflow: hidden;
 }
 
+
 /* レストランセクション */
 .s-restaurant__inner {
     box-sizing: border-box;
@@ -1278,7 +1289,7 @@ main {
     padding-top: 2rem;
 }
 
-/* レスポンシブ対応 */
+
 @media (max-width: 768px) {
     .s-restaurant__main {
         flex-direction: column;
@@ -1405,7 +1416,7 @@ main {
     padding: 0;
     font-weight: 300;
     font-family: ivyora-display, Didot, "Times New Roman", serif;
-    font-size: 70px;
+    font-size: 62px;
     letter-spacing: 0.08em;
     line-height: 1.306;
     width: fit-content;
@@ -1567,6 +1578,40 @@ main {
         display: none;
     }
 }
+
+
+@media (max-width: 768px) {
+    /* フレーム全体を適切なサイズに */
+    .s-restaurant__col--thumb .s-restaurant__frame {
+        width: 100%;
+        max-width: 350px; /* スマホ時に適度なサイズ */
+        aspect-ratio: 1000 / 1240; /* 画像の比率を維持 */
+        margin: 0 auto; /* 中央配置 */
+        height: auto; /* 高さを自動調整 */
+    }
+
+    /* パララックス効果のコンテナを調整 */
+    .s-restaurant__parallax {
+        width: 100%;
+        height: auto; /* 余白を防ぐ */
+        display: block; /* 不要な余白を削除 */
+    }
+
+    /* 画像の調整 */
+    .s-restaurant__parallax img {
+        width: 100%;
+        height: auto; /* 高さを自動調整 */
+        object-fit: cover;
+        position: static; /* 余白が出るのを防ぐ */
+        display: block; /* 画像の下にできる余白を防ぐ */
+    }
+}
+
+
+
+
+
+
 
 
 
