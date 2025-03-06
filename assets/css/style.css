@@ -43,8 +43,9 @@ html, body {
     padding: 0;
 }
 
+
 .header__logo img {
-    height: 5em; /* ロゴのサイズを適切に */
+    height: 5em;
     width: auto;
 }
 
@@ -145,7 +146,7 @@ html, body {
 
 @media (max-width: 768px) {
     .nav {
-        width: 100%; /* スマホでは全画面に */
+        width: 60%; /* スマホでは全画面に */
     }
 }
 
@@ -153,7 +154,6 @@ html, body {
 /* body */
 
 body {
-    /* background-color: #dededa; */
     background-image: url(../img/bgc_image.png);
     background-size: cover;
     font-family: "Noto Serif JP", serif;
@@ -168,30 +168,21 @@ body {
 
 .top-text{
     color: #fff;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.5);
     position: relative;
     height: fit-content;
     padding-top: 15px;
     padding-bottom: 15px;
-    top: 40%;
+    top: 30%;
     left: 45%;
-    writing-mode: vertical-rl; /* 縦書き（右から左へ） */
-    text-orientation: upright; /* 文字の向きを正しく表示 */
+    writing-mode: vertical-rl; 
+    text-orientation: upright; 
     letter-spacing: 4px;
-    font-weight: bold;
-    
-    
-    /* 明朝体設定 */
     font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
-    font-size: 30px;
+    font-size: 35px;
     
 }
 
-.story_text {
-    text-align: center;
-    line-height: 2.5;
-
-}
 
 .top-image {
     height: 100vh;
@@ -205,6 +196,28 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+    .header__logo img {
+        height: 3.5em; 
+        width: auto;
+    }
+
+    .hamburger {
+        width: 40px;
+        height: 40px;
+    }
+
+    .top-text {
+        font-size: 24px; /* スマホ用に小さく */
+        text-align: center;
+    }
+}
+
+.story_text {
+    text-align: center;
+    line-height: 2.5;
 }
 
 #story{
@@ -225,6 +238,18 @@ body {
     color: #333;
     white-space: normal;
     font-family: "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+}
+
+@media screen and (max-width: 768px) {
+    .story {
+        width: 80vw; /* スマホでは幅を広げる */
+        padding: 50px 0; /* 余白を少し減らす */
+    }
+
+    .story_text {
+        font-size: 0.85em; /* スマホ用に少し小さく */
+        line-height: 1.8; /* 行間を調整 */
+    }
 }
 
 .img__container {
@@ -323,21 +348,6 @@ margin-bottom: 0;
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-/* 
-
-
-/* スマホ対応 */
 @media (max-width: 768px) {
     .footer-container {
         flex-direction: column;
@@ -501,43 +511,41 @@ margin-bottom: 0;
     transform: translateY(0);
 }
 
-.container_news, .events_box {
+.container_news {
     max-width: 800px;
     margin: 50px auto;
     padding: 20px;
-    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+    
 }
 
-/* PC時は見出しを左に配置 */
-.news-container, .events-container {
+
+
+.news-container {
     display: flex;
     align-items: flex-start;
 }
 
-/* 見出しデザイン */
-.news-title, .events-title {
+
+.news-title {
     min-width: 150px;
     font-size: 2em;
     font-weight: bold;
     border-left: 5px solid #333;
     padding-left: 10px;
-    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
 }
 
-/* ニュース・イベントリストのボックス */
-.news_box, .events_box {
+
+.news_box {
     flex-grow: 1;
     max-width: 600px;
 }
 
-/* リスト全体のスタイル */
-.news_box ul, .events_box ul {
+.news_box ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-/* ニュース項目を横並びに */
 .news_list {
     display: flex;
     align-items: center;
@@ -546,12 +554,11 @@ margin-bottom: 0;
     border-bottom: 1px dashed #bbb;
 }
 
-/* 最後の項目のボーダーを消す */
-.news_list:last-child {
+/* .news_list:last-child {
     border-bottom: none;
-}
+} */
 
-/* 日付（time）を固定幅で整列 */
+
 .news_list time {
     font-size: 0.9em;
     color: #666;
@@ -559,16 +566,16 @@ margin-bottom: 0;
     text-align: left;
 }
 
-/* 内容（p）をフレックスで調整 */
+
 .news_list p {
     flex-grow: 1;
     margin: 0 10px;
     font-weight: bold;
     color: #333;
     text-align: left;
+
 }
 
-/* 矢印（→）のデザイン */
 .news_list span {
     color: #d9534f;
     font-size: 1.2em;
@@ -577,15 +584,75 @@ margin-bottom: 0;
     min-width: 30px;
 }
 
-/* ------------- ✅ スマホ対応 ------------- */
+/* スマホ対応のニュースレイアウト */
 @media (max-width: 768px) {
+    .news-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .news-title {
+        text-align: center;
+        min-width: 100%;
+        border-left: none;
+        border-bottom: 2px solid #333;
+        padding-bottom: 5px;
+        font-size: 1.8em;
+    }
+
+    .news_box {
+        width: 100%;
+        max-width: 90%;
+    }
+
+    .news_list {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 10px;
+        font-size: 1em;
+        border-bottom: 1px dashed #bbb;
+    }
+
+    .news_list time {
+        font-size: 0.9em;
+        color: #666;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 5px;
+    }
+
+    .news_list p {
+        font-weight: bold;
+        color: #333;
+        text-align: left;
+        margin: 0;
+    }
+
+    .news_list span {
+        color: #d9534f;
+        font-size: 1.1em;
+        font-weight: bold;
+        text-align: right;
+        align-self: flex-end;
+    }
+
+    .news_list a {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-decoration: none;
+    }
+}
+
+
+/* @media (max-width: 768px) {
     .news-container, .events-container {
-        flex-direction: column; /* スマホ時は縦配置 */
+        flex-direction: column; 
         align-items: center;
     }
 
     .news-title, .events-title {
-        text-align: center; /* スマホ時は中央配置 */
+        text-align: center;
         min-width: 100%;
         border-left: none;
         border-bottom: 2px solid #333;
@@ -597,7 +664,7 @@ margin-bottom: 0;
         align-items: center;
         text-align: left;
     }
-}
+} */
 
 
 .container_news {
@@ -641,13 +708,13 @@ margin-bottom: 0;
 }
 
 /* ニュース・イベントリストのボックス */
-.news_box, .events_box {
+.news_box {
     flex-grow: 1;
     max-width: 600px;
 }
 
 /* リスト全体のスタイル */
-.news_box ul, .events_box ul {
+.news_box ul {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -685,6 +752,7 @@ margin-bottom: 0;
     color: #333;
     text-align: left;
     white-space: nowrap;
+    
 
 }
 
@@ -704,12 +772,12 @@ margin-bottom: 0;
 
 /* ------------- スマホ対応 ------------- */
 @media (max-width: 768px) {
-    .news-container, .events-container {
+    .news-container {
         flex-direction: column; /* スマホ時は縦配置 */
         align-items: center;
     }
 
-    .news-title, .events-title {
+    .news-title {
         text-align: center; /* スマホ時は中央配置 */
         min-width: 100%;
         border-left: none;
@@ -722,6 +790,8 @@ margin-bottom: 0;
         align-items: center;
         text-align: left;
     }
+    
+    
 }
 
 .news_list {
@@ -790,7 +860,7 @@ margin-bottom: 0;
 }
 
 /* Stay Section Styles */
-.s-stay {
+#s-stay {
     box-sizing: border-box;
     padding: 10rem 0;
     color: rgb(246, 248, 245);
@@ -1078,57 +1148,84 @@ margin-bottom: 0;
     display: block;
 }
 
-/* Utility Classes */
 .u-no-sp {
     display: inline;
 }
 
-/* Media Queries */
-@media (max-width: 599px) {
-    .u-no-sp {
-        display: none;
-    }
-}
 
-/* Animation Classes */
-.is-play {
-    opacity: 0;
-    animation: fadeIn 0.6s ease forwards;
-}
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
-/* Media Queries */
-@media (max-width: 599px) {
-    .u-no-sp {
-        display: none;
-    }
-
-    .s-info {
-        padding: 0 0 12rem;
-    }
-
+@media (max-width: 768px) {
     .s-stay {
-        padding: 10rem 0;
+        padding: 5rem 0;
     }
 
-    .s-stay__img {
-        aspect-ratio: 358 / 285;
+    .s-stay__inner {
+        padding: 0 2rem;
     }
 
-    .s-restaurant {
-        padding: 10rem 0 0;
+    .s-stay__main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .s-stay__head {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .c-head--2 {
+        font-size: 40px;
+    }
+
+    .c-sub-head {
+        font-size: 1rem;
+    }
+
+    .s-stay__body {
+        width: 100%;
+    }
+
+    .s-stay__panel--1, 
+    .s-stay__panel--2, 
+    .s-stay__panel--3 {
+        width: 100%;
+        margin: 0;
+    }
+
+    .s-stay__des {
+        text-align: center;
+        padding: 2rem 1rem;
+    }
+
+    .s-stay__lead {
+        font-size: 14px;
+    }
+
+    .s-stay__text {
+        font-size: 13px;
+        line-height: 2;
+    }
+
+    .s-stay__btn {
+        margin-top: 2rem;
+    }
+
+    .c-btn {
+        font-size: 1.2rem;
+    }
+
+    .s-stay__deco {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .s-stay__movie img {
+        width: 100%;
+        height: auto;
     }
 }
+
 
 /* 基本設定 */
 body {
@@ -1464,7 +1561,7 @@ main {
     }
 }
 
-/* レスポンシブ設定 */
+
 @media (max-width: 599px) {
     .u-no-sp {
         display: none;
